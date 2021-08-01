@@ -61,3 +61,8 @@ resource "aws_security_group" "default" {
 
 }
 
+ # Save the public IP for testing
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.ec2.public_ip} > public-ip.txt"
+  }
+
