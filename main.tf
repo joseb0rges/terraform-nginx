@@ -61,6 +61,10 @@ resource "aws_security_group" "default" {
 
 }
 
+output "DNS" {
+  value = aws_instance.ec2.public_dns
+}
+
  # Save the public IP for testing
   provisioner "local-exec" {
     command = "echo ${aws_instance.ec2.public_ip} > public-ip.txt"
